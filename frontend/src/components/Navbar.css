@@ -1,0 +1,167 @@
+.navbar {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 35px;
+  font-weight: 800;
+  color: gray;
+}
+
+.logo-icon {
+  font-size: 28px;
+}
+
+/* Landing navbar */
+.nav-links-landing {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link-landing {
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.nav-link-landing:hover {
+  color: #038C8C;
+}
+
+.btn-ingresa {
+  padding: 10px 24px;
+  background: transparent;
+  color: #038C8C;
+  border: 2px solid #038C8C;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-ingresa:hover {
+  background: #038C8C;
+  color: white;
+}
+
+.btn-comenzar {
+  padding: 12px 28px;
+  background: #038C8C;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.btn-comenzar:hover {
+  background: #026b6b;
+}
+
+/* App navbar */
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links a {
+  color: #4a5568;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  background: #fcf9f7;
+  color: #038C8C;
+}
+
+.nav-links a.active {
+  background: #038C8C;
+  color: white;
+}
+
+/* Botón cerrar sesión */
+.btn-logout {
+  padding: 10px 20px;
+  background: transparent;
+  color: #038C8C;
+  border: 2px solid #038C8C;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-left: 16px;
+}
+
+.btn-logout:hover {
+  background: #038C8C;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.user-menu-btn {
+  background: rgba(3, 140, 140, 0.1);
+  color: #038C8C;
+  border: 2px solid #038C8C;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #038C8C;
+}
+
+.user-avatar-placeholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #038C8C;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}

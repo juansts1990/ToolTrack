@@ -1,0 +1,876 @@
+/* ============================================
+   TOOLTRACK PRO - Páginas Internas
+   Paleta: Oscura y Elegante
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Paleta principal */
+  --primary: #038C8C;
+  --primary-dark: #026b6b;
+  --primary-light: #04a5a5;
+  --dark-bg: #012E40;
+  --black: #121212;
+  --gray: #737373;
+  --gray-light: #9ca3af;
+  --gray-lighter: #e5e7eb;
+  --white: #ffffff;
+  --bg-light: #f9fafb;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-light);
+  color: var(--black);
+  padding-top: 70px;
+}
+
+/* ============================================
+   NAVBAR PREMIUM
+   ============================================ */
+
+.navbar {
+  background: var(--dark-bg);
+  border-bottom: 2px solid var(--primary);
+  padding: 0 20px;
+
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 40px;
+  position: relative;
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 0;
+}
+
+.navbar h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-links a {
+  color: var(--gray-light);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+}
+
+.nav-links a.active {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(3, 140, 140, 0.3);
+}
+
+/* ============================================
+   LAYOUT PÁGINAS
+   ============================================ */
+
+.dashboard,
+.page {
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.dashboard h1,
+.page h1 {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -1px;
+}
+
+.page-subtitle {
+  color: var(--gray);
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+/* ============================================
+   STATS CARDS - DASHBOARD
+   ============================================ */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.stat-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  border: 2px solid var(--gray-lighter);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary);
+}
+
+.stat-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(3, 140, 140, 0.15);
+  transform: translateY(-4px);
+}
+
+.stat-card h3 {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.stat-card.warning h3 { 
+  color: var(--warning); 
+}
+
+.stat-card.warning::before { 
+  background: var(--warning); 
+}
+
+.stat-card.danger h3 { 
+  color: var(--danger); 
+}
+
+.stat-card.danger::before { 
+  background: var(--danger); 
+}
+
+.stat-card p {
+  color: var(--gray);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   TABLES PREMIUM
+   ============================================ */
+
+.table-container {
+  background: white;
+  border-radius: 16px;
+  overflow-x: auto;
+  overflow-y: visible;
+  border: 2px solid var(--gray-lighter);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+}
+
+th {
+  background: var(--dark-bg);
+  color: var(--white);
+  padding: 20px 24px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+td {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gray-lighter);
+  color: var(--black);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: #f9fafb;
+}
+
+/* ============================================
+   BADGES
+   ============================================ */
+
+.badge {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.badge.disponible {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge.en_uso,
+.badge.activo {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.mantenimiento {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(3, 140, 140, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(3, 140, 140, 0.4);
+}
+
+.btn-secondary {
+  background: #1a1a1a;
+  color: white;
+  border: 2px solid #2d3748;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+.btn-secondary:hover {
+  background: var(--gray-light);
+  border-color: var(--gray);
+}
+
+/* ============================================
+   LOADING
+   ============================================ */
+
+.loading {
+  text-align: center;
+  padding: 100px;
+  font-size: 18px;
+  color: var(--gray);
+  font-weight: 600;
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(1, 46, 64, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  padding: 28px;
+  border-bottom: 2px solid var(--gray-lighter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--dark-bg);
+}
+
+.modal-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--white);
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-close:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.modal-content form {
+  padding: 28px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--gray-lighter);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(3, 140, 140, 0.1);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 24px;
+  border-top: 2px solid var(--gray-lighter);
+}
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+
+.dashboard h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 48px 0 24px;
+  color: var(--black);
+  letter-spacing: -0.5px;
+}
+
+.dashboard ul {
+  background: white;
+  border-radius: 16px;
+  border: 2px solid var(--gray-lighter);
+  padding: 24px 28px;
+}
+
+.dashboard li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--gray-lighter);
+  color: var(--black);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.dashboard li:last-child {
+  border-bottom: none;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+  
+  .nav-links {
+    gap: 4px;
+  }
+  
+  .nav-links a {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  
+  .dashboard,
+  .page {
+    padding: 24px 16px;
+  }
+  
+  .dashboard h1,
+  .page h1 {
+    font-size: 28px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-card h3 {
+    font-size: 48px;
+  }
+  
+  table {
+    font-size: 13px;
+  }
+  
+  th, td {
+    padding: 14px 12px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* Ocultar navbar en login */
+body:has(.login-page) .navbar {
+  display: none;
+}
+
+/* Badges de Roles */
+.badge.admin {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge.supervisor {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.empleado {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* ==========================================
+   MEJORAS DE COLORES Y HOVER
+   ========================================== */
+
+/* Eliminar el azul predeterminado de los links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #059669 !important; /* Verde suave en lugar de azul */
+}
+
+/* Mejorar hover en botones primarios */
+.btn-primary:hover {
+  background: #047857 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Mejorar hover en botones secundarios */
+.btn-secondary:hover {
+  background: var(--primary) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(3, 140, 140, 0.4);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Hover en filas de tabla */
+table tbody tr {
+  transition: all 0.2s ease;
+}
+
+table tbody tr:hover {
+  background: rgba(5, 150, 105, 0.08) !important;
+  transform: scale(1.01);
+}
+
+/* Hover en inputs */
+input:hover:not(:disabled),
+select:hover:not(:disabled),
+textarea:hover:not(:disabled) {
+  border-color: #059669 !important;
+}
+
+/* Mejorar focus en inputs */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+/* Stat cards hover */
+.stat-card {
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Mejorar el hover del navbar */
+.nav-links a:hover {
+  background: rgba(5, 150, 105, 0.1) !important;
+  color: #059669 !important;
+}
+
+.nav-links a.active {
+  background: #059669 !important;
+  color: white !important;
+}
+
+/* Modal overlay con mejor animación */
+.modal-overlay {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mejorar hover en badges */
+.badge {
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  transform: scale(1.05);
+}
+
+/* Scroll suave en toda la app */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Mejorar el scroll en tablas */
+.table-container {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #059669 #1a1a1a;
+}
+
+.table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #059669;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
+/* Cursor pointer en elementos interactivos */
+button,
+.btn-primary,
+.btn-secondary,
+.btn-close,
+a {
+  cursor: pointer;
+}
+
+/* Desabilitar selección de texto en botones */
+button,
+.btn-primary,
+.btn-secondary {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+/* ==========================================
+   MEJORAS DE CONTRASTE EN BOTONES
+   ========================================== */
+
+/* Botones dentro de tablas */
+table .btn-primary,
+table .btn-secondary {
+  padding: 8px 16px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Hover específico para botones en tablas */
+table .btn-secondary:hover {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: white !important;
+}
+
+/* Botón de eliminar con color especial */
+table .btn-secondary:last-child:hover {
+  background: var(--danger) !important;
+  border-color: var(--danger) !important;
+  color: white !important;
+}
+
+/* Asegurar texto visible en todos los botones */
+.btn-primary,
+.btn-secondary {
+  color: white !important;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  color: white !important;
+}
+
+/* Mejorar contraste en links del navbar */
+.nav-links a {
+  color: #4a5568 !important;
+}
+
+.nav-links a:hover {
+  background: rgba(3, 140, 140, 0.1) !important;
+  color: var(--primary) !important;
+}
+
+.nav-links a.active {
+  background: var(--primary) !important;
+  color: white !important;
+}
+
+/* ============================================
+   DROPDOWN MENU - USUARIO
+   ============================================ */
+
+.user-menu {
+  position: relative;
+}
+
+.user-menu-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.user-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.user-menu-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-menu-dropdown a,
+.user-menu-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.user-menu-dropdown a:hover,
+.user-menu-dropdown button:hover {
+  background: var(--bg-light);
+  color: var(--primary);
+}
+
+.user-menu-dropdown button.logout-option {
+  border-top: 1px solid var(--gray-lighter);
+  color: var(--danger);
+}
+
+.user-menu-dropdown button.logout-option:hover {
+  background: #fee2e2;
+  color: var(--danger);
+}
