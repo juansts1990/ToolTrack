@@ -31,6 +31,7 @@ app.use('/api/mantenimientos', require('./routes/mantenimientos.routes.js'));
 app.use('/api/alertas', require('./routes/alertas.routes.js'));
 app.use('/api/dashboard', require('./routes/dashboard.routes.js'));
 app.use('/api/mantenimientos', require('./routes/mantenimientos.routes.js'));
+app.use('/api/contactos', require('./routes/contactos.routes.js'));
 
 module.exports = app;
 

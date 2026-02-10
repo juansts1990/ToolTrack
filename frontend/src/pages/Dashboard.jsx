@@ -11,14 +11,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     cargarEstadisticas();
-    
-    // ← MOVIDO AQUÍ DENTRO DEL useEffect
-    const tutorialCompletado = localStorage.getItem('tutorial_completado');
-    if (!tutorialCompletado) {
-      setTimeout(() => {
-        setMostrarTutorial(true);
-      }, 500);
-    }
+  
   }, []);
 
   const cargarEstadisticas = async () => {
@@ -43,9 +36,15 @@ export default function Dashboard() {
     }
   };
 
-  // ========== MOSTRAR TUTORIAL ========== (AGREGAR ESTO)
+  const cerrarTutorial = () => {
+    const usuarioActual = JSON.parse(localStorage.getItem('usuario'));
+    localStorage.setItem(`tutorial_visto_${usuarioActual?.id}`, 'true');
+    setMostrarTutorial(false);
+  };
+
+  // Mostrar tutorial si está activo
   if (mostrarTutorial) {
-    return <Tutorial onClose={() => setMostrarTutorial(false)} />;
+    return <Tutorial onClose={cerrarTutorial} />;
   }
 
   if (loading) return <div className="loading">Cargando estadísticas...</div>;
@@ -54,10 +53,21 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h1>📊 Dashboard ToolTrack</h1>
-      <p className="page-subtitle">Vista general de tu inventario y operaciones</p>
+      <div className="dashboard-header">
+        <div>
+          <h1>📊 Dashboard ToolTrack</h1>
+          <p className="page-subtitle">Vista general de tu inventario y operaciones</p>
+        </div>
+        <button 
+          className="btn-tutorial"
+          onClick={() => setMostrarTutorial(true)}
+          title="Ver tutorial del sistema"
+        >
+          📚 Ver Tutorial
+        </button>
+      </div>
       
-      <Alertas />
+      {/* <Alertas /> */}
 
       <div className="stats-grid">
         <div className="stat-card">

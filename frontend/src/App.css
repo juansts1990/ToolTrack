@@ -874,3 +874,38 @@ table .btn-secondary:last-child:hover {
   background: #fee2e2;
   color: var(--danger);
 }
+
+
+/* Botón Tutorial */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.btn-tutorial {
+  background: linear-gradient(135deg, #038C8C 0%, #026b6b 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(3, 140, 140, 0.2);
+}
+
+.btn-tutorial:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 140, 140, 0.3);
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

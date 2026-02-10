@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import '../App.css';
 import { API_URL } from '../config';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export default function Reportes() {
   const [datos, setDatos] = useState(null);
@@ -34,8 +36,6 @@ export default function Reportes() {
     }
   };
 
-  if (loading) return <div className="loading">Cargando reportes...</div>;
-
   // Colores para gráficos
   const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'];
 
@@ -48,6 +48,78 @@ export default function Reportes() {
     }).format(num);
   };
 
+  // Función para exportar a PDF
+  const exportarPDF = async () => {
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    
+    try {
+      // Header del PDF
+      pdf.setFillColor(3, 140, 140);
+      pdf.rect(0, 0, pageWidth, 30, 'F');
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(20);
+      pdf.text('ToolTrack - Reportes y Análisis', pageWidth / 2, 15, { align: 'center' });
+      pdf.setFontSize(10);
+      const fecha = new Date().toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
+      pdf.text(`Generado el ${fecha}`, pageWidth / 2, 23, { align: 'center' });
+      
+      let yPosition = 40;
+      
+      // Sección de Ahorro
+      pdf.setTextColor(0, 0, 0);
+      pdf.setFontSize(14);
+      pdf.text('💰 Ahorro por Mantenimientos Gratuitos', 15, yPosition);
+      yPosition += 10;
+      
+      pdf.setFontSize(10);
+      pdf.text(`Ahorro Total Anual: ${formatCOP(datos?.ahorro?.ahorroAnual || 0)}`, 15, yPosition);
+      yPosition += 7;
+      pdf.text(`Herramientas Nuevas: ${datos?.ahorro?.herramientasNuevas || 0}`, 15, yPosition);
+      yPosition += 7;
+      pdf.text(`Mantenimientos Gratuitos Disponibles: ${datos?.ahorro?.mantenimientosGratuitos || 0}`, 15, yPosition);
+      yPosition += 7;
+      pdf.text(`Ahorro Mensual Promedio: ${formatCOP(datos?.ahorro?.ahorroMensual || 0)}`, 15, yPosition);
+      yPosition += 15;
+      
+      // Capturar gráficos
+      const graficos = document.querySelectorAll('.stat-card');
+      
+      for (let i = 0; i < graficos.length; i++) {
+        if (yPosition > pageHeight - 80) {
+          pdf.addPage();
+          yPosition = 20;
+        }
+        
+        const canvas = await html2canvas(graficos[i], {
+          scale: 2,
+          backgroundColor: '#ffffff',
+          logging: false
+        });
+        
+        const imgData = canvas.toDataURL('image/png');
+        const imgWidth = pageWidth - 30;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        
+        pdf.addImage(imgData, 'PNG', 15, yPosition, imgWidth, imgHeight);
+        yPosition += imgHeight + 10;
+      }
+      
+      // Guardar PDF
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      const nombreArchivo = `ToolTrack_Reporte_${usuario?.nombre?.replace(/\s/g, '_')}_${new Date().getTime()}.pdf`;
+      pdf.save(nombreArchivo);
+      
+      alert('✅ Reporte exportado exitosamente');
+    } catch (error) {
+      console.error('Error al generar PDF:', error);
+      alert('❌ Error al generar el reporte PDF');
+    }
+  };
+
+  if (loading) return <div className="loading">Cargando reportes...</div>;
+
   return (
     <div className="page">
       <div className="page-header">
@@ -55,6 +127,13 @@ export default function Reportes() {
           <h1>📊 Reportes y Análisis</h1>
           <p className="page-subtitle">Visualiza el rendimiento de tu inventario</p>
         </div>
+        <button 
+          className="btn-primary"
+          onClick={exportarPDF}
+          style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+        >
+          📄 Exportar a PDF
+        </button>
       </div>
 
       {/* ========== AHORRO ANUAL ========== */}

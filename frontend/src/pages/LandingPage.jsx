@@ -15,11 +15,38 @@ export default function LandingPage() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('¡Gracias! Te contactaremos pronto.');
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  try {
+    const response = await fetch('http://localhost:5000/api/contactos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+    
+    const data = await response.json();
+    
+    if (data.success) {
+      alert('¡Gracias! Te contactaremos pronto.');
+      // Limpiar formulario
+      setFormData({
+        nombre: '',
+        email: '',
+        telefono: '',
+        empresa: '',
+        mensaje: ''
+      });
+    } else {
+      alert('Error al enviar el mensaje. Intenta de nuevo.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error al enviar el mensaje. Intenta de nuevo.');
+  }
+};
 
   return (
     <>
@@ -248,7 +275,7 @@ export default function LandingPage() {
                 </div>
                 <p className="plan-desc">Ideal para crecer</p>
               </div>
-              <button className="btn-plan-pro primary">Empieza gratis</button>
+              <a href="/registro" className="btn-plan-pro primary">Empieza gratis</a>
               <ul className="features-list-pro">
                 <li className="feature-item-pro">
                   <span className="check-icon">✓</span>
@@ -292,7 +319,7 @@ export default function LandingPage() {
                 </div>
                 <p className="plan-desc">Para grandes operaciones</p>
               </div>
-              <button className="btn-plan-pro">Empieza gratis</button>
+              <a href="/registro" className="btn-plan-pro">Empieza gratis</a><s></s>
               <ul className="features-list-pro">
                 <li className="feature-item-pro">
                   <span className="check-icon">✓</span>
