@@ -23,8 +23,12 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <span className="logo-icon">🔧</span>
-          <span className="logo-text">ToolTrack</span>
+          <img 
+            src="/assets/tooltrack-logo-header-dark.svg" 
+            alt="ToolTrack" 
+            className="navbar-logo-img"
+            style={{ height: '50px' }}
+          />
         </Link>
         
         {isLandingPage ? (

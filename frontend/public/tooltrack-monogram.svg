@@ -1,0 +1,17 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="monoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0a4d4e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Fondo redondeado -->
+    <rect width="120" height="120" rx="22" fill="url(#monoGrad)"/>
+    
+    <!-- Texto TT -->
+    <text x="60" y="80" font-family="'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="800" fill="white" text-anchor="middle">TT</text>
+    
+    <!-- Punto decorativo -->
+    <circle cx="60" cy="85" r="4" fill="#2dd4bf"/>
+</svg>

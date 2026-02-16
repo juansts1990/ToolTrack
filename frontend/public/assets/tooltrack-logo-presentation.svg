@@ -1,0 +1,24 @@
+<svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="presentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#14b8a6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2dd4bf;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Icono -->
+    <g transform="translate(45, 50)">
+        <path d="M -22 -14 L -22 14 L 0 24 L 22 14 L 22 -14 L 0 -24 Z" fill="url(#presentGrad)"/>
+        <circle cx="0" cy="0" r="8" fill="white"/>
+        <path d="M -8 0 L 8 0 M 0 -8 L 0 8" stroke="#14b8a6" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Texto principal -->
+    <text x="90" y="50" font-family="'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#0a4d4e">Tool<tspan fill="#14b8a6">Track</tspan></text>
+    
+    <!-- Tagline -->
+    <text x="90" y="72" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#64748b">Gestión Inteligente de Herramientas</text>
+    
+    <!-- Línea decorativa -->
+    <line x1="90" y1="78" x2="380" y2="78" stroke="#14b8a6" stroke-width="2" opacity="0.3"/>
+</svg>
