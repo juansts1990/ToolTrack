@@ -102,8 +102,7 @@ ToolTrack/
 │   │   ├── pages/
 │   │   └── context/
 │   └── package.json
-└── database/
-└── tooltrack_estructura_completa.sql
+└──tooltrack_estructura_bd.sql
 
 ## 👨‍💻 Autor
 
