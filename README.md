@@ -91,18 +91,19 @@ El frontend queda disponible en `http://localhost:5173`
 ToolTrack/
 ├── backend/
 │   ├── src/
-│   │   ├── routes/
-│   │   ├── controllers/
-│   │   └── middleware/
-│   ├── .env.example
-│   └── package.json
+│   │   ├── config/
+│   │   └── routes/
+│   ├── package.json
+│   └── server.js
 ├── frontend/
 │   ├── src/
+│   │   ├── assets/
 │   │   ├── components/
+│   │   ├── hooks/
 │   │   ├── pages/
-│   │   └── context/
+│   │   └── utils/
 │   └── package.json
-└──tooltrack_estructura_bd.sql
+└── tooltrack_estructura_bd.sql
 
 ## 👨‍💻 Autor
 
