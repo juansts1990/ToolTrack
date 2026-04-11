@@ -104,3 +104,7 @@ ToolTrack/
 │   └── package.json
 └── database/
 └── tooltrack_estructura_completa.sql
+
+## 👨‍💻 Autor
+
+**Juan Sebastián** — Tecnología en Análisis y Desarrollo de Sistemas de Información — SENA
