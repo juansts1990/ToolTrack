@@ -88,3 +88,19 @@ El frontend queda disponible en `http://localhost:5173`
 
 
 ## 📁 Estructura del proyectoperfil
+ToolTrack/
+├── backend/
+│   ├── src/
+│   │   ├── routes/
+│   │   ├── controllers/
+│   │   └── middleware/
+│   ├── .env.example
+│   └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── context/
+│   └── package.json
+└── database/
+└── tooltrack_estructura_completa.sql
