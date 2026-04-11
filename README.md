@@ -38,7 +38,7 @@ cd ToolTrack
 Importa el archivo SQL en MySQL:
 
 ```bash
-mysql -u root -p < database/tooltrack_estructura_completa.sql
+mysql -u root -p < tooltrack_estructura_bd.sql
 ```
 
 O impórtalo manualmente desde phpMyAdmin.
