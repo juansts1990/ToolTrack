@@ -87,7 +87,7 @@ El frontend queda disponible en `http://localhost:5173`
 | Administrador | admin@tooltrack.com | 123456 |
 
 
-## 📁 Estructura del proyectoperfil
+## 📁 Estructura del proyecto
 ToolTrack/
 ├── backend/
 │   ├── src/
