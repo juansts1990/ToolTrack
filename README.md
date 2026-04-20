@@ -88,3 +88,6 @@ El frontend queda disponible en `http://localhost:5173`
 | Empleado | empleado@tooltrack.com | 123456 |
 
 ## 📁 Estructura del proyecto
+
+## 👨‍💻 Autor
+**Juan Sebastián** — Tecnología en Análisis y Desarrollo de Sistemas de Información — SENA
